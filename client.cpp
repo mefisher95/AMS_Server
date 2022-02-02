@@ -18,7 +18,7 @@ int main(int argc , char *argv[])
 	}
 	puts("Socket created");
 	
-	server.sin_addr.s_addr = inet_addr("3.16.78.144");
+	server.sin_addr.s_addr = inet_addr("18.217.154.43 ");
 	server.sin_family = AF_INET;
 	server.sin_port = htons( 8080 );
 
