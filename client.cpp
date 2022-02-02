@@ -8,7 +8,14 @@
 int main(int argc, char const *argv[])
 {
     int sock = 0, valread;
+    
     struct sockaddr_in serv_addr;
+   
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr = inet_addr("3.16.78.144");
+    serv_addr.sin_port = PORT;
+   
+   
     char *hello = "Hello from client";
     char buffer[1024] = {0};
     if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
