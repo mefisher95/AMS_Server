@@ -21,10 +21,13 @@ int main(int argc , char *argv[])
 	server.sin_addr.s_addr = inet_addr("18.217.154.43 ");
 	server.sin_family = AF_INET;
 	server.sin_port = htons( 8080 );
+	
+	puts("assigned server vars");
 
 	//Connect to remote server
 	if (connect(sock , (struct sockaddr *)&server , sizeof(server)) < 0)
 	{
+		puts("inside the connect if statement");
 		perror("connect failed. Error");
 		return 1;
 	}
