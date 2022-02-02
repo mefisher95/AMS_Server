@@ -1,47 +1,60 @@
-#include <stdio.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
+#include <stdio.h>	//printf
+#include <string.h>	//strlen
+#include <sys/socket.h>	//socket
+#include <arpa/inet.h>	//inet_addr
 #include <unistd.h>
-#include <string.h>
-#define PORT 8080
-   
-int main(int argc, char const *argv[])
+
+int main(int argc , char *argv[])
 {
-    int sock = 0, valread;
-    
-    struct sockaddr_in serv_addr;
-   
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_addr.s_addr = inet_addr("3.16.78.144");
-    serv_addr.sin_port = PORT;
-   
-   
-    char *hello = "Hello from client";
-    char buffer[1024] = {0};
-    if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-    {
-        printf("\n Socket creation error \n");
-        return -1;
-    }
-   
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port = htons(PORT);
-       
-    // Convert IPv4 and IPv6 addresses from text to binary form
-    if(inet_pton(AF_INET, "127.0.0.1", &serv_addr.sin_addr)<=0) 
-    {
-        printf("\nInvalid address/ Address not supported \n");
-        return -1;
-    }
-   
-    if (connect(sock, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0)
-    {
-        printf("\nConnection Failed \n");
-        return -1;
-    }
-    send(sock , hello , strlen(hello) , 0 );
-    printf("Hello message sent\n");
-    valread = read( sock , buffer, 1024);
-    printf("%s\n",buffer );
-    return 0;
+	int sock;
+	struct sockaddr_in server;
+	char message[1000] , server_reply[2000];
+	
+	//Create socket
+	sock = socket(AF_INET , SOCK_STREAM , 0);
+	if (sock == -1)
+	{
+		printf("Could not create socket");
+	}
+	puts("Socket created");
+	
+	server.sin_addr.s_addr = inet_addr("3.16.78.144");
+	server.sin_family = AF_INET;
+	server.sin_port = htons( 8080 );
+
+	//Connect to remote server
+	if (connect(sock , (struct sockaddr *)&server , sizeof(server)) < 0)
+	{
+		perror("connect failed. Error");
+		return 1;
+	}
+	
+	puts("Connected\n");
+	
+	//keep communicating with server
+	while(1)
+	{
+		printf("Enter message : ");
+		scanf("%s" , message);
+		
+		//Send some data
+		if( send(sock , message , strlen(message) , 0) < 0)
+		{
+			puts("Send failed");
+			return 1;
+		}
+		
+		//Receive a reply from the server
+		if( recv(sock , server_reply , 2000 , 0) < 0)
+		{
+			puts("recv failed");
+			break;
+		}
+		
+		puts("Server reply :");
+		puts(server_reply);
+	}
+	
+	close(sock);
+	return 0;
 }
