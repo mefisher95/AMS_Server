@@ -7,6 +7,7 @@
 #include<sys/socket.h>
 #include<arpa/inet.h>	//inet_addr
 #include<unistd.h>	//write
+#include <iostream>
 
 int main(int argc , char *argv[])
 {
@@ -56,6 +57,8 @@ int main(int argc , char *argv[])
 	while( (read_size = recv(client_sock , client_message , 2000 , 0)) > 0 )
 	{
 		//Send the message back to client
+		
+		std::cout << "client message: " << client_message << std::endl;
 		write(client_sock , client_message , strlen(client_message));
 	}
 	
