@@ -12,6 +12,7 @@ int main(int argc , char *argv[])
 	
 	//Create socket
 	sock = socket(AF_INET , SOCK_STREAM , 0);
+	std::cout << "socket: " << sock << std::endl;
 	if (sock == -1)
 	{
 		printf("Could not create socket");
@@ -31,6 +32,8 @@ int main(int argc , char *argv[])
 		perror("connect failed. Error");
 		return 1;
 	}
+
+	
 	
 	puts("Connected\n");
 	
