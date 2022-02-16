@@ -1,0 +1,7 @@
+No modulus found in Player-Data//3-Sp-128/Params-Data, generating 128-bit prime
+Time = 0.195848 seconds 
+Data sent = 1.48642 MB in ~808 rounds (party 1)
+Global data sent = 3.81608 MB (all parties)
+This program might benefit from some protocol options.
+Consider adding the following at the beginning of 'secure_dna_comparison.mpc':
+	program.use_edabit(True)

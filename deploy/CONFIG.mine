@@ -1,0 +1,6 @@
+MY_CFLAGS += -I./local/include
+MY_LDLIBS += -Wl,-rpath -Wl,/home/andrew/Documents/MP-SPDZ/local/lib -L/home/andrew/Documents/MP-SPDZ/local/lib
+MY_CFLAGS += -I./local/include
+MY_LDLIBS += -Wl,-rpath -Wl,/home/andrew/Documents/MP-SPDZ/local/lib -L/home/andrew/Documents/MP-SPDZ/local/lib
+MY_CFLAGS += -I./local/include
+MY_LDLIBS += -Wl,-rpath -Wl,/home/andrew/Documents/secure_dna/MP-SPDZ/local/lib -L/home/andrew/Documents/secure_dna/MP-SPDZ/local/lib

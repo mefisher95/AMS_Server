@@ -1,0 +1,13 @@
+from Compiler.types import sint, regint, Array, MemValue
+
+DNA_LENGTH = 409600
+a = Array(DNA_LENGTH, sint)
+b = Array(DNA_LENGTH, sint)
+
+a.input_from(0)
+b.input_from(1)
+
+c[:] = a[:] + b[:] - 2*(a[:]*b[:])
+
+d = sum(c)
+print_ln('the difference is %s', d.reveal())
