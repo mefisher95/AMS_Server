@@ -1,3 +1,8 @@
+sudo apt -y update
+sudo apt -y upgrade
+sudo apt -y install make g++
+sudo apt -y install automake build-essential git libboost-dev libboost-thread-dev libntl-dev libsodium-dev libssl-dev libtool m4 python3 texinfo yasm
+chmod +x Scripts/*.sh
 if [ $# -gt 1 ]
 then
     python3 input_randomization.py 100 $1
