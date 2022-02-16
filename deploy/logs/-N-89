@@ -1,0 +1,1 @@
+shamir-party.x: Networking/Server.cpp:168: static Server* Server::start_networking(Names&, int, int, std::string, int, int): Assertion `my_num < nplayers' failed.

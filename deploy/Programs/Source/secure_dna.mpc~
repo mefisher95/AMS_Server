@@ -1,0 +1,8 @@
+a = sint.Array(4700)
+a.input_from(0)
+b = sint.Array(4700)
+b.input_from(1)
+c = sint.Array(4700)
+c = (a[:] + b[:]) - 2*(a[:]*b[:])
+d = len(c) - sum(c)
+print_ln('d is %s', d.reveal())

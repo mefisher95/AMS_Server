@@ -1,0 +1,7 @@
+a = sint.Array(10)
+a.input_from(0)
+b = sint.Array(10)
+b.input_from(1)
+c = sint.Array(10)
+c[:] = (a[:] + b[:]) - 2*(a[:]*b[:])
+

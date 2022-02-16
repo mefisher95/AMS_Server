@@ -112,6 +112,8 @@ endif
 
 shamir: shamir-party.x malicious-shamir-party.x atlas-party.x galois-degree.x
 
+shamir_simple: shamir-party.x
+
 sy: sy-rep-field-party.x sy-rep-ring-party.x sy-shamir-party.x
 
 ecdsa: $(patsubst ECDSA/%.cpp,%.x,$(wildcard ECDSA/*-ecdsa-party.cpp)) Fake-ECDSA.x

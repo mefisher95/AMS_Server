@@ -1,7 +1,3 @@
-No modulus found in Player-Data//3-Sp-128/Params-Data, generating 128-bit prime
-Time = 0.206235 seconds 
-Data sent = 1.1616 MB in ~707 rounds (party 2)
-Global data sent = 3.81608 MB (all parties)
-This program might benefit from some protocol options.
-Consider adding the following at the beginning of 'secure_dna_comparison.mpc':
-	program.use_edabit(True)
+Trying to run 64-bit computation
+terminate called after throwing an instance of 'Processor_Error'
+  what():  Processor-Error : Program compiled for fields not rings, run compile.py with '-R 64'

@@ -1,0 +1,10 @@
+from Compiler.mpc_math import log2_fx
+from Compiler.types import sint, Array
+
+a = Array(1, sfix)
+a.input_from(0)
+b = Array(1, sfix)
+b.input_from(1)
+
+c = log2_fx(a[0] + b[0])
+

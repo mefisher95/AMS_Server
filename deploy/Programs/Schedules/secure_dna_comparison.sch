@@ -5,4 +5,4 @@ secure_dna_comparison-0
 0
 ./compile.py secure_dna_comparison
 lgp:105
-opts: split edabit
+opts: edabit split

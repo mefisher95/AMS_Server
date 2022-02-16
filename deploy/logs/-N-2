@@ -1,0 +1,7 @@
+No modulus found in Player-Data//5-Sp-128/Params-Data, generating 128-bit prime
+Server-side handshake with P3 failed. Make sure both sides  have the necessary certificate (Player-Data/P2.pem in the default configuration on their side and Player-Data/P3.pem on ours), and run `c_rehash <directory>` on its location.
+The certificates should be the same on every host. Also make sure that it's still valid. Certificates generated with `Scripts/setup-ssl.sh` expire after a month.
+See also https://mp-spdz.readthedocs.io/en/latest/troubleshooting.html#handshake-failures
+Signature (should match the other side): 2135622b5e705ab8fa03293387579fb0/e62e42d2a26e77af211f005af2df38b8
+terminate called after throwing an instance of 'boost::wrapexcept<boost::system::system_error>'
+  what():  handshake: stream truncated
